@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:insert="layout::navbar">
+
+<div th:insert="layout::login"></div>
+
+</div>
+	<div class="container">
+		<form action="" th:action="@{/doLogin}" method="post">
+
+			<table border="1" class="login">
+				<tr>
+					<td colspan="2" class=th:text="${selector}">Login Form</td>
+				</tr>
+				<tr>
+					<td colspan="2" th:text="${message}"></td>
+				</tr>
+				<tr>
+					<Td>User Name</Td>
+					<td><input type="text" name="userName"></td>
+				</tr>
+				<tr>
+					<Td>Password</Td>
+					<td><input type="password" name="userPassword"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="login" class="btn"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

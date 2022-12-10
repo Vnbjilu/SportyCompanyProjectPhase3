@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet" />
+
+</head>
+<body>
+	<div th:replace="layout::navbar"></div>
+	<div class="content">
+		<form action="#" th:action="@{/SaveUser}" th:object="${UserEntity}"
+			method="post">
+			<table border="1">
+				<tr>
+					<td colspan="2">User Creation Form</td>
+				</tr>
+				<tr>
+					<td>User Name</td>
+					<td><input type="text" th:field="*{userName}" name="userName"></td>
+
+				</tr>
+
+				<tr>
+					<td>User Password</td>
+					<td><input type="password" th:field="*{userPassword}"
+						name="userPassword"></td>
+				</tr>
+				<tr>
+					<td>Confirm Password</td>
+					<td><input type="password"></td>
+				</tr>
+				<tr>
+					<Td>User Email</Td>
+					<td><input type="email" th:field="*{userEmail}"
+						name="userEmail"></td>
+				</tr>
+				<tr>
+					<td>User Contact</td>
+					<td><input type="text" th:field="*{userContact}"
+						name="userContact"></td>
+				</tr>
+				<tr>
+					<td>User Role</td>
+					<td><select th:field="*{userRole}">
+							<option th:value="None" th:text="None" />
+							<option th:value="Admin" th:text="Admin" />
+							<option th:value="User" th:text="User" />
+
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Create User">
+						<input type="reset" value="Clear Form"></td>
+				</tr>
+			</table>
+
+		</form>
+	</div>
+</body>
+</html>

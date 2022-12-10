@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:replace="layout::navbar"></div>
+	<div th:insert="layout::menu"></div>
+	<div class="content">
+		<table border="1">
+			<tr>
+				<Td colspan="6">User Data</Td>
+			</tr>
+			<tr>
+				<th>Sno</th>
+				<th>User Id</th>
+				<th>User Name</th>
+				<th>User Email</th>
+				<th>User Contact</th>
+				<th>User Role</th>
+			</tr>
+			<tr th:each="user,vikas:${UserEntity}">
+				<td th:text=${vikas.index+1}></td>
+				<td th:text="${user.userId}"></td>
+				<td th:text="${user.userName}"></td>
+				<td th:text="${user.userEmail}"></td>
+				<td th:text="${user.userContact}"></td>
+				<td th:text="${user.userRole}"></td>
+			</tr>
+
+
+
+
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet" />
+
+</head>
+
+
+
+<div th:fragment="navbar" class="dashboard">
+	<h2>
+		<span th:text="${username}"></span> Admin Portal
+		
+	</h2>
+	<div class="logout" th:fragment="LogOpt">
+	<a href="/logout"><span th:text="${login}"></span></a>
+</div>
+
+</div>
+
+
+
+<div th:fragment="menu" class="menu">
+	<ul>
+		<li><a href="/product"> Product</a></li>
+		<li><a href="/category/">Category</a></li>
+		
+		<li><a href="/store">Store</a></li>
+		<li><a href="/passwordChange">Change Password</a></li>
+		<li><a href="/showfrm"> User Creation</a></li>
+		<li><a href="/showuser"> Logged User Details</a>
+
+	</ul>
+</div>
+<div th:fragment="catmenu" class="menu">
+<
+
+<ul>
+	<li> Category</li>
+		<li><a href="/">Home</a></li>
+		<li><a href="/category/addcat"> New Entry </a></li>
+		<li><a href="/category/showcat"> Display Entry </a></li>
+		</ul>
+</div>
+
+
+</html>

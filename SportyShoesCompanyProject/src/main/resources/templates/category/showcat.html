@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet" />
+</head>
+<style>
+
+</style>
+<body>
+	<div th:insert="layout :: navbar">
+	<div th:insert="layout :: logOpt"></div>
+	</div>
+	<div th:insert="layout:: catmenu"></div>
+	<div class="content">
+	
+	<table border="1">
+	<tR>
+		<Td colspan="2"> Category Info</Td>
+	</tR>
+	<tr>
+		<td> Cat Id</td>
+		<Td>Cat Name</Td>
+	</tr>
+	<tr th:each="cat :${Category}">
+		<td th:text="${cat.catId}"></td>
+		<Td th:text="${cat.catType}"></Td>
+	</tr>
+	
+	</table>
+	</div>
+</body>
+</html>

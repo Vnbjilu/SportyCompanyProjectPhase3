@@ -1,0 +1,102 @@
+
+.dashboard {
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	float: left;
+	height: 100px;
+	width: 100%;
+	background-color: yellow;
+}
+
+.logout {
+	top: 0px;
+	right: 50px;
+	position: absolute;
+}
+.logout a {
+	font-size: 200%;
+	display: inline;
+}
+.menu
+{
+top:100px;
+left:10px;
+margin:15px;
+position:absolute;
+width:100%;
+background-image:linear-gradient(yellow,green);
+color:white;
+font-size:120%;
+padding:2%;
+
+
+}
+.menu ul
+{
+list-style:none;
+
+}
+.menu li
+{
+float:left;
+padding-right:5%;
+}
+.menu a
+{
+color:White;
+}
+.menu a:hover
+{
+color:red;
+background-color:pink;
+}
+.moving
+{
+top:120px;
+background-color:pink;
+color:white;
+font-size:200%;
+position:absolute;
+width:100%;
+margin-top:10%;
+}
+.container
+{
+top:40%;
+left:30%;
+position:absolute;
+
+}
+.login
+{
+background-image:linear-gradient(pink,yellow);
+
+}
+.btn
+{
+background-color:green;
+color:white;
+font-size:170%;
+margin-left:40%;
+
+
+}
+.correct
+{
+ text-align:center;
+ color:green;
+ 
+}
+.wrong
+{
+text-align:center;
+color:red;
+}
+.content
+{
+	top:250px;
+	position:absolute;
+	left:250px;
+}
+}

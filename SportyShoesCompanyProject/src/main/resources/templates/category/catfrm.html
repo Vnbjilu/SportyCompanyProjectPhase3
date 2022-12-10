@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:insert="layout:: navbar"></div>
+<div th:insert="layout :: catmenu"></div>
+<div class="content">
+<form th:action="@{/category/addcat}"  method="post">
+<table border="1">
+<tr>
+	<Td colspan="2"> Category Creation Form</Td>
+</tr>
+<tr>
+	<Td> Category Name</Td>
+	<td> <input type="text" name="catName"></td>
+</tr>
+<tr>
+	<td colspan="2"> <input type="submit" value="create"></td>
+</tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>
