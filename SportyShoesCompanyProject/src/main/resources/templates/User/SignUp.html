@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div th:replace="layout::navbar"></div>
+	<div th:insert="layout::menu"></div>
 	<div class="content">
 		<form action="#" th:action="@{/SaveUser}" th:object="${UserEntity}"
 			method="post">

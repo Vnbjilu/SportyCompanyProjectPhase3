@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:insert="layout::navbar"></div>
+	<div th:insert="layout::ProductMenu"></div>
+	<div class="content">
+		<form th:action="@{/Product/saveproduct}" th:object="${Product}"
+			method="post">
+			<table border="1">
+				<tr>
+					<td colspan="2">Product Entry Form</td>
+				</tr>
+				<tr>
+					<td>Product Name</td>
+					<td><input type="text" th:field="*{prodName}"
+						name="productName"></td>
+				</tr>
+				<tr>
+					<td>Product Company</td>
+					<td><input type="text" th:field="*{prodCompany}"></td>
+				</tr>
+				<tr>
+					<Td>Product Price</Td>
+					<Td><input type="text" th:field="*{prodPrice}"></Td>
+				</tr>
+				<tr>
+					<Td>Product Creation Date</Td>
+					<td><input type="date" th:field="*{prodCreated}"></td>
+				</tr>
+				<tr>
+					<td>Product Category</td>
+					<td><select name="category">
+							<option th:each="cat:${Category}" th:value="${cat.catId}"><span
+									th:text="${cat.catType}"></span></option>
+
+					</select>
+				<tr>
+					<Td colspan="2"><input type="submit" value="Add Product">
+					</Td>
+				</tr>
+
+
+			</table>
+		</form>
+	</div>
+</body>
+</html>

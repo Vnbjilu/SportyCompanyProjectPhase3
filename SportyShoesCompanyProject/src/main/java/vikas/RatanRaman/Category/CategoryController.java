@@ -18,11 +18,12 @@ import vikas.RatanRaman.User.UserController;
 public class CategoryController {
 	
 	@Autowired
-	CategoryRepository catr;
+	CatDao catr;
 	
 	@GetMapping("/")
-	public ModelAndView showIndex(ModelAndView mv)
+	public ModelAndView showIndex(ModelAndView mv,HttpServletRequest request)
 	{
+		String page=new UserController().getCookies(request);
 		mv.setViewName("/category/index");
 		mv.addObject("login", "logout");
 		mv=UserController.login_check(mv);
@@ -45,9 +46,9 @@ public class CategoryController {
 		Category cat=new Category();
 		
 		cat.setCatType(request.getParameter("catName"));
-		catr.save(cat);
+		catr.insert(cat);
 		
-		mv.setViewName("redirect:category/showcat");
+		mv.setViewName("redirect:/category/showcat");
 		mv=UserController.login_check(mv);	
 		return mv;
 		
@@ -55,10 +56,20 @@ public class CategoryController {
 	@GetMapping("/showcat")
 	public ModelAndView showcategory(ModelAndView mv)
 	{
-		List<Category> cat=catr.findAll();
+		List<Category> cat=catr.GetAll();
 		mv.addObject("Category", cat);
-		mv.setViewName("category/showcat");
+		mv.setViewName("/category/showcat");
 		mv=UserController.login_check(mv);
+		return mv;
+		
+	}
+	@GetMapping("/deletecategory")
+	public ModelAndView deleteproduct(ModelAndView mv,HttpServletRequest request)
+	{
+		Long id=Long.parseLong(request.getParameter("id"));
+		String data=catr.deleteById(id);
+		mv.addObject("message", data);
+		mv.setViewName("redirect:/category/showcat");
 		return mv;
 		
 	}

@@ -15,7 +15,7 @@ import vikas.RatanRaman.Product.Product;
 public class Category {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long catId;
 	
 	@Column(nullable = false,unique = true)

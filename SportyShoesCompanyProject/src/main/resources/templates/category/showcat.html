@@ -18,15 +18,17 @@
 	
 	<table border="1">
 	<tR>
-		<Td colspan="2"> Category Info</Td>
+		<Td colspan="3"> Category Info</Td>
 	</tR>
 	<tr>
 		<td> Cat Id</td>
 		<Td>Cat Name</Td>
+		<td> Delete </td>
 	</tr>
 	<tr th:each="cat :${Category}">
 		<td th:text="${cat.catId}"></td>
 		<Td th:text="${cat.catType}"></Td>
+		<td><a th:href="@{/category/deletecategory(id=${cat.catId})}">Delete</a></td>
 	</tr>
 	
 	</table>

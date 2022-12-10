@@ -157,6 +157,7 @@ public class UserController {
 	}
 	public static  ModelAndView login_check(ModelAndView mv)
 	{
+		
 		if(!UserController.status)
 		{
 		mv.setViewName("redirect:/login");
