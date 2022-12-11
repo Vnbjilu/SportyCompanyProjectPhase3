@@ -26,12 +26,23 @@ public class ProductController {
 	@Autowired
 	CatDao cdao;
 	
+	String page="username";
+	
+	public ProductController()
+	{
+		
+	}
 	
 	@RequestMapping(value="/",method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView  mv,HttpServletRequest request)
 	{
-		String page=new UserController().getCookies(request);
+		page=new UserController().getCookies(request);
+		
+		
 		mv.setViewName("product/index");
+		mv.addObject("username", page);
+		mv=UserController.login_check(mv);
+		mv.addObject("login", "logout");
 	return mv;	
 	}
 		
@@ -41,6 +52,9 @@ public class ProductController {
 		mv.addObject("Product",new Product());
 		mv.setViewName("/Product/productfrm");
 		mv.addObject("Category", cdao.GetAll());
+		mv.addObject("username", page);
+		mv=UserController.login_check(mv);
+		mv.addObject("login", "logout");
 		return mv;
 		
 	}
@@ -53,14 +67,20 @@ public class ProductController {
 		prod.setCat(cat);
 		pdao.insertRecord(prod);
 		mv.setViewName("redirect:/showproduct");
+		mv.addObject("username", page);
+		mv=UserController.login_check(mv);
+		mv.addObject("login", "logout");
 		return mv;
 		
 	}
-	@GetMapping("/showproduct")
+	@GetMapping("/displayProduct")
 	public ModelAndView showProduct(ModelAndView mv)
 	{
 		mv.addObject("Product",pdao.getAllRecord());
-		mv.setViewName("/Product/showproduct");
+		mv.setViewName("/Product/productshowfrm");
+		mv.addObject("username", page);
+		mv=UserController.login_check(mv);
+		mv.addObject("login", "logout");
 		return mv;
 		
 	}

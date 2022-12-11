@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/vikas.css}" rel="stylesheet" />
+
+</head>
+<body>
+	<div th:insert="layout::navbar"></div>
+	<div th:insert="layout::ProductMenu"></div>
+	<div class="content">
+		<table border="1">
+			<tr>
+				<Td colspan="6">Product Report</Td>
+			</tr>
+			<tr>
+				<th>Product Id</th>
+				<th>Product Name</th>
+				<th>Product Company</th>
+				<th>Product Created Date</th>
+				<th>Category</th>
+				<th>Operation:Delete</th>
+			</tr>
+			<tr th:each="prod:${Product}">
+				<td th:text="${prod.prodId}"></td>
+				<td th:text="${prod.prodName}"></td>
+				<td th:text="${prod.prodPrice}"></td>
+				<td th:text="${prod.prodCreated}"></td>
+				<td th:text="${prod.cat.catId}"></td>
+				<td> Delete</td>
+			</tr> 
+				
+				
+				</table>
+	</div>
+</body>
+</html>
